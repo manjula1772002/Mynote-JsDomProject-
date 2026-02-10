@@ -2,14 +2,81 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/notes.avif">
+    <link rel="icon" type="image/svg+xml" href="/notes.avif" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>stickynote</title>
     <!-- stylecss -->
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
-  <body class="bg-amber-300">
-    <div id="app"></div>
+  <body class="bg-slate-950 text-white">
+    <header>
+      <nav class="py-2 px-5 md:px[5vw] border-b gray-800 flex justify-between items-center">
+        <div class="flex gap-2 font-medium"><img src="./public/logo.png" alt="logo" class="w-12" /><p class="text-3xl text-white">mynote</p></div>
+        <div><button id="add-note" class="bg-violate-600 font-semibold rounded cursor-pointer text-white">+ Add Note</button></div>
+      </nav>
+    </header>
+    <main id="container" class="px-5 text-white md:px[5vw] grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 my-6">
+    <!-- card -->
+     <div class="card bg-slate-700 relative">
+ 
+      <div class="action-div" class="flex space-x-2 absolute top-2 right-3">
+        <button type="button" class="edit-btn">edit</button>
+        <button type="button" class="delete-btn">delete</button>
+      </div>
+
+      <h2 class="card-title">title-1</h2>
+      <p>content</p>
+      
+     </div>
+    </main>
+    <dialog id="dialog-div" closedby="any" class="m-auto p-10 space-y-3 rounded-xl w-xl">
+      <div class="flex justify-between">
+        <h2 id="dialog-Heading" class="text-2xl font-bold">Add Note</h2>
+        <span
+          id="close"
+          class="font-medium hover:bg-red-700 px-2 rounded hover:text-white"
+          >X</span
+        >
+      </div>
+      <form class="space-y-2" id="form-div" >
+        <div class="flex flex-col">
+          <label for="note-title" class="font-medium text-lg">Title</label>
+          <input
+            type="text"
+            class="outline-violet-300 rounded  bg-slate-100 py-2 px-3 w-full"
+            placeholder="title"
+            id="note-title"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="note-content" class="font-medium">Content</label>
+
+          <textarea
+            id="note-content"
+            type="text"
+            row="4"
+            class="outline-violet-300 py-2 px-3 w-full rounded  bg-slate-100 "
+            placeholder="content"
+          ></textarea>
+        </div>
+        <div class="flex float-end space-x-3">
+          <button
+            type="reset"
+            class="px-3 py-2 bg-gray-500 cousor-pointer rounded"
+          >
+            Clear
+          </button>
+          <button
+            id="save-btn"
+            class="px-3 py-2 bg-violat-500 cousor-pointer bg-green-700 text-white hover:bg-green-800 rounded"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- js  -->
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
