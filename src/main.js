@@ -24,9 +24,10 @@ let existingUserId = null;
 let NOTES_KEY = "notes"
 
 
-// dialog ope fn 
+// dialog 
 function dialogOpenFn() {
     // if
+    
 
     dialogDivEl.showModal();
 }
@@ -58,7 +59,7 @@ function saveNote(e) {
 
     saveLocalStorage();
     dialogCloseFn();
-    // renderFn();
+    renderFn();
     
 }
 // id gentraion 
@@ -73,7 +74,19 @@ function renderFn() {
     let fetchedData = JSON.parse(localStorage.getItem(NOTES_KEY))
     notes = fetchedData ?? [];
 
-    // containerDiv.innerHTML = 
+    containerDiv.innerHTML = notes.map(note => {
+       return  `<div class="card bg-slate-700 relative p-4 rounded">
+ 
+      <div class="action-div" class="flex space-x-2 float-end top-2 right-3 ">
+        <button type="button" class="edit-btn">edit</button>
+        <button type="button" class="delete-btn">delete</button>
+      </div>
+
+      <h2 class="card-title">title-1</h2>
+      <p>content</p>
+      
+     </div>`
+    }).join("")
 }
 
     
